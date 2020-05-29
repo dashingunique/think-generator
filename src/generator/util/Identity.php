@@ -9,7 +9,7 @@
 namespace dashing\generator\util;
 
 use dashing\generator\BaseUtil;
-use library\Collection;
+use dashing\library\Collection;
 use InvalidArgumentException;
 
 class Identity extends BaseUtil
@@ -105,7 +105,7 @@ class Identity extends BaseUtil
     {
         if (empty($this->region)) {
             $file = file_get_contents(generatorPath().'/data/region.json');
-            $this->region = new Collection(json_decode($file,
+            $this->region = uniqueCollection(json_decode($file,
                 true));
         }
         return $this;

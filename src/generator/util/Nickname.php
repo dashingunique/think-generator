@@ -9,7 +9,7 @@
 namespace dashing\generator\util;
 
 use dashing\generator\BaseUtil;
-use library\Collection;
+use dashing\library\Collection;
 
 class Nickname extends BaseUtil
 {
@@ -65,7 +65,7 @@ class Nickname extends BaseUtil
             $this->surname = $this->attributes['surname'];
         } else {
             $file = file_get_contents(generatorPath().'/data/surname.json');
-            $surnameData = new Collection(json_decode($file, true));
+            $surnameData = uniqueCollection(json_decode($file, true));
             $surname = $surnameData->where('length', $this->getCompound())->random();
             $this->surname = $surname['surname'];
         }
@@ -102,7 +102,7 @@ class Nickname extends BaseUtil
     public function setName()
     {
         $file = file_get_contents(generatorPath().'/data/name.json');
-        $nameData = new Collection(json_decode($file, true));
+        $nameData = uniqueCollection(json_decode($file, true));
         $nameCollect = $nameData->where('sex', $this->getSex());
         $name = '';
         for ($i = 0; $i < $this->getLength(); $i++) {
