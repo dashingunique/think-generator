@@ -1,6 +1,6 @@
 {
     "name": "dashingunique/think-generator",
-    "description": "erp",
+    "description": "thinkphp6 random generation of mobile phone number, ID number, mailbox address, nickname and other test data.",
     "type": "src",
     "license": "MIT",
     "authors": [
