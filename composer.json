@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
-        "topthink/framework": "^6.0.0"
+        "topthink/framework": "^6.0.0",
+        "dashingunique/think-library": "dev-master"
     },
     "autoload": {
         "files": [

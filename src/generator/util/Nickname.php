@@ -9,7 +9,6 @@
 namespace dashing\generator\util;
 
 use dashing\generator\BaseUtil;
-use dashing\library\Collection;
 
 class Nickname extends BaseUtil
 {

@@ -9,7 +9,7 @@
 namespace dashing\generator\util;
 
 use dashing\generator\BaseUtil;
-use library\Collection;
+use dashing\library\Collection;
 
 class Email extends BaseUtil
 {
