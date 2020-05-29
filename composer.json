@@ -20,7 +20,7 @@
             "src/generator/Helper.php"
         ],
         "psr-4": {
-            "think\\admin\\": "src"
+            "dashing\\": "src"
         }
     },
     "extra": {
