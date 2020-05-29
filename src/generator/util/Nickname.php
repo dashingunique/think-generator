@@ -6,9 +6,9 @@
  * +----------------------------------------------------------------------
  */
 
-namespace generator\util;
+namespace dashing\generator\util;
 
-use generator\BaseUtil;
+use dashing\generator\BaseUtil;
 use library\Collection;
 
 class Nickname extends BaseUtil

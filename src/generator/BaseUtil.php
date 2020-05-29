@@ -1,9 +1,7 @@
 <?php
 
 
-namespace generator;
-
-use generator\util\Identity;
+namespace dashing\generator;
 
 abstract class BaseUtil
 {

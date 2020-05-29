@@ -12,7 +12,7 @@ use think\Manager;
 
 class Generator extends Manager
 {
-    protected $namespace = '\\generator\\util\\';
+    protected $namespace = '\\dashing\\generator\\util\\';
 
     /**
      * 生成器

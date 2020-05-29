@@ -6,9 +6,9 @@
  * +----------------------------------------------------------------------
  */
 
-namespace generator\util;
+namespace dashing\generator\util;
 
-use generator\BaseUtil;
+use dashing\generator\BaseUtil;
 use think\helper\Arr;
 
 class Mobile extends BaseUtil
