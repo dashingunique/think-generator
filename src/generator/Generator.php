@@ -6,7 +6,7 @@
  * +----------------------------------------------------------------------
  */
 
-namespace generator;
+namespace dashing\generator;
 
 use think\Manager;
 

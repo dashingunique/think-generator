@@ -1,0 +1,28 @@
+{
+    "name": "dashingunique/think-generator",
+    "description": "erp",
+    "type": "src",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dashing unique",
+            "email": "1107842285@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "topthink/framework": "^6.0.0",
+        "dashingunique/library": "^6.0.0"
+    },
+    "autoload": {
+        "files": [
+            "src/generator/Helper.php"
+        ],
+        "psr-4": {
+            "think\\admin\\": "src"
+        }
+    },
+    "extra": {
+    }
+}

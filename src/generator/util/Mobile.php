@@ -8,9 +8,10 @@
 
 namespace generator\util;
 
+use generator\BaseUtil;
 use think\helper\Arr;
 
-class Mobile
+class Mobile extends BaseUtil
 {
     /**
      * @var string 手机号前缀：例如136
@@ -28,26 +29,22 @@ class Mobile
      */
     public function getPrefix()
     {
-        if (empty($this->prefix)) {
-            $this->setPrefix();
-        }
+        $this->setPrefix();
         return $this->prefix;
     }
 
     /**
      * 设置手机号前缀
-     * @param  string  $prefix
      * @return $this
      */
-    public function setPrefix(string $prefix = '')
+    public function setPrefix()
     {
-        $allowPrefix = $this->getAllowPrefix();
-        if (empty($prefix)) {
-            $prefix .= 1;
-            $prefix .= $allowPrefix[Arr::random($allowPrefix)];
-            $prefix .= rand(0, 9);
+        if (isset($this->attributes['prefix'])) {
+            $this->prefix = $this->attributes['prefix'];
+        } else {
+            $allowPrefix = $this->getAllowPrefix();
+            $this->prefix = 1 . $allowPrefix[Arr::random($allowPrefix)] . mt_rand(0, 9);
         }
-        $this->prefix = $prefix;
         return $this;
     }
 
@@ -57,9 +54,7 @@ class Mobile
      */
     public function getAllowPrefix(): array
     {
-        if (empty($this->allowPrefix)) {
-            $this->setAllowPrefix();
-        }
+        $this->setAllowPrefix();
         return $this->allowPrefix;
     }
 
@@ -70,19 +65,27 @@ class Mobile
      */
     public function setAllowPrefix(array $allow = [])
     {
-        if (empty($allow)) {
-            $allow = [3, 4, 5, 7, 8, 9];
+        if (isset($this->attributes['allow'])) {
+            if (is_string($this->attributes['allow']) && strpos($this->attributes['allow'], ',')) {
+                $this->allowPrefix = explode(',', $this->attributes['allow']);
+            } elseif (is_array($this->attributes['allow'])) {
+                $this->allowPrefix = $this->attributes['allow'];
+            }
+        } else {
+            if (empty($allow)) {
+                $allow = [3, 4, 5, 7, 8, 9];
+            }
+            $this->allowPrefix = $allow;
         }
-        $this->allowPrefix = $allow;
         return $this;
     }
 
     /**
-     * 获取手机号码
+     * 生成手机号码
      * @return string
      */
-    public function make()
+    public function generate()
     {
-        return $this->getPrefix() . str_pad(rand(00000000,99999999),8,0,STR_PAD_LEFT);
+        return $this->getPrefix() . str_pad(rand(0,99999999),8,0,STR_PAD_LEFT);
     }
 }
