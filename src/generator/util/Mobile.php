@@ -43,7 +43,7 @@ class Mobile extends BaseUtil
             $this->prefix = $this->attributes['prefix'];
         } else {
             $allowPrefix = $this->getAllowPrefix();
-            $this->prefix = 1 . $allowPrefix[Arr::random($allowPrefix)] . mt_rand(0, 9);
+            $this->prefix = 1 . Arr::random($allowPrefix) . mt_rand(0, 9);
         }
         return $this;
     }
